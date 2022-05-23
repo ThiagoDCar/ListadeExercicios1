@@ -7,6 +7,7 @@ public class exercicio22{
         double p1 = 0;
         double p2 = 0;
         double pr = 0;
+        boolean con = true;
         
         do{
               try{
@@ -16,14 +17,24 @@ public class exercicio22{
                 p2 = input.nextDouble();
                 System.out.println("Digite a Pr: ");
                 pr = input.nextDouble();
+                if(p1>=0 && p1<=10){
+                    if(p2>=0 && p2<=10){
+                        if(pr>=0 && pr<=10){
+                            con = false;
+                        }
+                    }
+                }if(con){
+                    System.out.println("Digite apenas números inteiros de 0 a 10.");
+                    
+                }
             }
             catch(InputMismatchException e) {
-                System.out.println("Digite apenas números inteiros e positivos.");
+                System.out.println("Digite apenas números inteiros e positivos de 0 a 10.");
                 input.next();
                 continue;
             }
         }
-        while(p1 < 0 || p2 < 0 || pr < 0 || p1 > 10 || p2 > 10 || pr > 10 );
+        while(con );
         double ms = ((p1+p2)/2)*0.6 + pr*0.4;
         System.out.println("A média é: " + ms);
     }
